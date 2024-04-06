@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tarefa 5.8</title>
+        <link rel="stylesheet" type="text/css" href="estilo8.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Selecione seu Time</h1>
+            <form>
+            <ul>
+               <h3>Selecione seu time do coração</h3>
+               <li><input type="radio" id="Corinthians" name="time" value="Corinthians"> <label for="Ler">Corinthians</label></li>
+               <li><input type="radio" id="Palmeiras" name="time" value="Palmeiras"> <label for="Palmeiras">Palmeiras</label></li>
+               <li><input type="radio" id="Saopaulo" name="time" value="Saopaulo"> <label for="Saopaulo">São Paulo</label></li>
+               <li><input type="radio" id="Santos" name="time" value="Santos"> <label for="Santos">Santos</label></li>
+               <li><input type="radio" id="Flamengo" name="time" value="Flamengo"> <label for="Flamengo">Flamengo</label></li>
+               <li><input type="radio" id="Fluminense" name="time" value="Fluminense"> <label for="Fluminense">Fluminense</label></li>
+            </ul>
+                <button type="button" class="check-button" onclick="ShowCheck()">Mostrar Time do coração</button>
+                <button type="button" class="check-remove" onclick="RemoverCheck()">Limpar</button>
+            </form>
+
+            <p id="result"></p>
+
+            <script>
+
+                function ShowCheck(){
+                    var radios = document.getElementsByName('time')
+                    var timeselecionado = null;
+
+                    for (var i = 0; i < radios.length; i++){
+                        if (radios[i].checked){
+                            timeselecionado = radios[i].value;
+                            break;
+                        }
+                    }
+                        if (timeselecionado){
+                            document.getElementById('result').innerHTML = " <span><h3 style='color: black'>Time Escolhido: </h3> </span>" + timeselecionado
+                        } else {
+                            document.getElementById('result').innerHTML = " <span><h3 style='color: black'>Nenhum Time selecionado</h3> </span>";
+                        }
+                }
+                function RemoverCheck(){
+
+                    var checkboxes = document.getElementsByName('time')
+
+                    for(var i = 0; i < checkboxes.length; i++){
+                        checkboxes[i].checked = false;
+                    }
+                    document.getElementById('result').innerHTML = "";
+                }
+
+            </script>
+        </div>
+    </body>
+</html>
